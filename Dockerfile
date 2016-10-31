@@ -1,4 +1,4 @@
-FROM node:4
+FROM node:argon
 RUN mkdir -p /usr/src/athenaKb
 WORKDIR /usr/src/athenaKb
 COPY package.json /usr/src/athenaKb/
