@@ -6,7 +6,7 @@ const schema = require('./schema.js');
 const DEFAULT_DATA = require('../data/default.json');
 
 let sequelize = module.exports.sequelize = new mw.sequelize(uri, {
-  logging: false //set true to see SQL in terminal
+  logging: true //set true to see SQL in terminal
 });
 
 let Article = module.exports.article =
@@ -14,7 +14,7 @@ let Article = module.exports.article =
 let RelatedTicket = module.exports.relatedTicket =
   sequelize.define('related_ticket', schema.relatedTicket);
 Article.hasMany(RelatedTicket, {as: 'relatedTickets', onDelete: 'CASCADE', onUpdate: 'CASCADE'});
-RelatedTicket.hasOne(Article)
+//RelatedTicket.hasOne(Article)
 //----server initialization----
 //server will overwrite defaults each time its launched
 sequelize.authenticate()
