@@ -1,10 +1,10 @@
 'use strict'
 const DIALECT = 'postgres';
-const HOST = 'localhost';
+const HOST = process.env.POSTGRES || '127.0.0.1';
 const PORT = 5432;
-const DB = 'kb';
-const DB_USR = require('./dbAuth.js').DB_USR;
-const DB_PASS = require('./dbAuth.js').DB_PASS;
+const DB = process.env.POSTGRES_DB || 'kb';
+const DB_USR = process.env.POSTGRES_USER || require('./dbAuth.js').DB_USR;
+const DB_PASS = process.env.POSTGRES_PASSWORD || require('./dbAuth.js').DB_PASS;
 
 module.exports = {
   default: 3003,
